@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>도배청년단 · 1분 예상 견적</title>
+<style>
+  :root{
+    --blue:#3C7DD9; --blue-d:#2B62B5; --blue-l:#EAF1FC; --blue-l2:#F2F7FE;
+    --steel:#9BB4D2; --ink:#2A2F36; --muted:#737D8A; --line:#E7ECF2;
+    --bg:#FFFFFF; --section:#F4F7FA; --ok:#2e9e6b; --warn:#c0392b;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0; padding:0;}
+  body{
+    background:var(--section); color:var(--ink);
+    font-family:'Pretendard','SUIT','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+
+  /* ===== Header ===== */
+  header{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20;}
+  .head-in{max-width:1080px; margin:0 auto; padding:14px 22px; display:flex; align-items:center;}
+  .logo{display:flex; align-items:center; gap:8px; font-weight:800; font-size:19px; color:var(--blue); letter-spacing:-.02em;}
+  .logo-img{height:34px; width:auto; display:block;}
+  nav{margin-left:auto; display:flex; gap:28px; font-size:14.5px; font-weight:600; color:#3f454e;}
+  nav a:hover{color:var(--blue);}
+  @media(max-width:680px){ nav{display:none;} }
+
+  /* ===== Intro ===== */
+  .intro{background:linear-gradient(180deg,#fff 0%, var(--section) 100%); border-bottom:1px solid var(--line);}
+  .intro-in{max-width:720px; margin:0 auto; padding:34px 22px 28px; text-align:center;}
+  .intro .tagline{font-size:13.5px; font-weight:700; color:var(--blue); letter-spacing:.02em;}
+  .intro h1{font-size:27px; font-weight:800; letter-spacing:-.03em; margin:8px 0 8px; color:var(--ink);}
+  .intro h1 b{color:var(--blue);}
+  .intro p{font-size:14.5px; color:var(--muted); margin:0;}
+  .chips{display:flex; gap:7px; justify-content:center; flex-wrap:wrap; margin-top:16px;}
+  .chip{font-size:12px; font-weight:700; color:var(--blue-d); background:var(--blue-l); border-radius:20px; padding:5px 12px;}
+
+  /* ===== Wizard card ===== */
+  .wrap{max-width:720px; margin:24px auto 0; padding:0 18px;}
+  .card{background:#fff; border:1px solid var(--line); border-radius:20px; box-shadow:0 6px 24px rgba(40,70,120,.06); overflow:hidden;}
+  .prog{height:5px; background:#e9eef4;}
+  .prog > i{display:block; height:100%; background:linear-gradient(90deg,var(--blue),var(--blue-d)); width:0; transition:width .35s ease; border-radius:0 4px 4px 0;}
+  .pad{padding:26px 24px 28px;}
+  @media(max-width:560px){ .pad{padding:22px 18px 24px;} }
+
+  .step-head{margin-bottom:18px;}
+  .kicker{font-size:12px; font-weight:800; color:var(--blue); letter-spacing:.03em;}
+  .q-title{font-size:21px; font-weight:800; letter-spacing:-.02em; margin:5px 0 3px;}
+  .q-sub{font-size:13.5px; color:var(--muted);}
+
+  .opts{display:flex; flex-direction:column; gap:11px;}
+  .opt{
+    border:1.6px solid var(--line); background:#fff; border-radius:14px; padding:15px 16px;
+    text-align:left; cursor:pointer; transition:.15s; width:100%; font-family:inherit; color:var(--ink);
+    display:flex; gap:13px; align-items:flex-start;
+  }
+  .opt:hover{border-color:#bcd0ec; background:var(--blue-l2);}
+  .opt:active{transform:scale(.99);}
+  .opt.sel{border-color:var(--blue); background:var(--blue-l2); box-shadow:0 0 0 3px rgba(60,125,217,.12);}
+  .opt .emoji{font-size:24px; flex:none; line-height:1.2;}
+  .opt .main{flex:1; min-width:0;}
+  .opt .ot{font-weight:800; font-size:15.5px; display:flex; align-items:center; gap:7px; flex-wrap:wrap;}
+  .opt .sqm{font-weight:700; font-size:12px; color:#98a2b0;}
+  .opt .pill{font-size:10.5px; font-weight:800; color:var(--blue-d); background:var(--blue-l); border-radius:20px; padding:2px 8px;}
+  .opt .feat{display:block; font-size:12.8px; color:var(--muted); margin-top:3px;}
+  .opt .rec{display:block; font-size:12.8px; color:var(--blue-d); margin-top:3px; font-weight:600;}
+  .opt .rec b{font-weight:800;}
+  .opt .brand{display:block; font-size:11.5px; color:#98a2b0; margin-top:3px;}
+  .opt .note-x{display:block; font-size:11.8px; color:#b07d2a; margin-top:3px;}
+  .opt .price-hint{flex:none; text-align:right; font-weight:800; color:var(--blue-d); font-size:14px; white-space:nowrap; padding-top:1px;}
+  .opt .price-hint small{display:block; font-size:10.5px; color:var(--muted); font-weight:600;}
+
+  .nav-row{display:flex; gap:10px; margin-top:20px;}
+  .btn{padding:14px; border-radius:12px; font-size:15px; font-weight:800; border:none; cursor:pointer; font-family:inherit;}
+  .btn-ghost{background:#eef2f7; color:#46505d; padding:14px 18px;}
+  .btn-primary{background:var(--blue); color:#fff; flex:1;}
+  .btn-primary:active{background:var(--blue-d);}
+
+  /* ===== Result ===== */
+  .hero-r{background:linear-gradient(135deg,var(--blue) 0%, var(--blue-d) 100%); color:#fff; border-radius:16px; padding:24px; text-align:center; margin-bottom:16px;}
+  .hero-r .rl{font-size:13px; color:#d3e2fb; font-weight:700;}
+  .hero-r .price{font-size:40px; font-weight:800; letter-spacing:-.02em; margin:6px 0 2px;}
+  .hero-r .price .won{font-size:22px;}
+  .hero-r .range{font-size:14px; color:#dbe7fb;}
+  .hero-r .approx{display:inline-block; margin-top:12px; font-size:11.5px; background:rgba(255,255,255,.16); padding:5px 12px; border-radius:20px;}
+  .summary{border:1px solid var(--line); border-radius:13px; overflow:hidden; margin-bottom:16px;}
+  .summary .row{display:flex; justify-content:space-between; gap:12px; padding:12px 16px; font-size:13.5px; border-bottom:1px solid var(--line);}
+  .summary .row:last-child{border-bottom:none;}
+  .summary .k{color:var(--muted); flex:none;} .summary .v{font-weight:700; text-align:right;}
+  .note{font-size:12px; color:var(--muted); background:var(--section); border-radius:11px; padding:12px 14px; margin-bottom:18px;}
+  .note b{color:var(--ink);}
+
+  /* ===== Lead form ===== */
+  .form-card{border:1.8px solid var(--blue); border-radius:16px; padding:19px 18px; background:#fbfdff;}
+  .form-card h3{margin:0 0 3px; font-size:18px; font-weight:800;}
+  .form-card .fh{font-size:12.5px; color:var(--muted); margin-bottom:15px;}
+  .field{margin-bottom:12px;}
+  .field label{display:block; font-size:12.5px; font-weight:700; color:#3a4a5e; margin-bottom:5px;}
+  .field label .req{color:var(--warn);}
+  .field input, .field select{width:100%; padding:12px 13px; border:1.4px solid var(--line); border-radius:10px; font-size:14.5px; font-family:inherit; background:#fff; color:var(--ink);}
+  .field input:focus, .field select:focus{outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(60,125,217,.1);}
+  .row2{display:flex; gap:10px;} .row2 .field{flex:1;}
+  .err{font-size:11.5px; color:var(--warn); margin-top:4px; display:none;}
+
+  .consult-box{background:var(--blue-l); border-radius:14px; padding:22px; text-align:center; margin-bottom:16px;}
+  .consult-box .ce{font-size:40px;}
+  .consult-box h2{font-size:20px; margin:8px 0 4px; font-weight:800; color:var(--blue-d);}
+  .consult-box p{font-size:13.5px; color:var(--blue-d); margin:0;}
+
+  .center{text-align:center;}
+  .done-emoji{font-size:52px; margin:8px 0;}
+  .done h2{font-size:22px; font-weight:800; margin:0 0 8px;}
+  .done p{color:var(--muted); font-size:14px; margin:0 0 4px;}
+  .restart{background:none; border:none; color:var(--muted); font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; margin-top:10px;}
+
+  /* ===== Bottom trust + social ===== */
+  .why{max-width:720px; margin:30px auto 0; padding:0 18px;}
+  .why h2{font-size:17px; font-weight:800; text-align:center; margin:0 0 16px;}
+  .badges{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .badge-c{background:#fff; border:1px solid var(--line); border-radius:13px; padding:14px 14px; display:flex; gap:10px; align-items:center; font-size:13.5px; font-weight:700;}
+  .badge-c .bi{flex:none; width:34px; height:34px; border-radius:9px; background:var(--blue-l); color:var(--blue-d); display:flex; align-items:center; justify-content:center; font-size:17px;}
+  .social{display:flex; gap:10px; margin:16px auto 0; max-width:720px;}
+  .social a{flex:1; text-align:center; border-radius:12px; padding:13px; font-size:13.5px; font-weight:800; border:1.5px solid var(--line); background:#fff; display:flex; align-items:center; justify-content:center; gap:8px;}
+  .social a:hover{border-color:#bcd0ec; background:var(--blue-l2);}
+  .social .em{font-size:17px;}
+
+  footer{text-align:center; color:#9aa4b0; font-size:11.5px; padding:26px 18px 36px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="head-in">
+    <a class="logo" href="#">
+      <img src="assets/logo.png" alt="도배청년단" class="logo-img"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+      <span class="logo-text" style="display:none;">도배청년단</span>
+    </a>
+    <nav>
+      <a href="#">서비스 소개</a>
+      <a href="#">시공 사례</a>
+      <a href="#">견적 현황</a>
+      <a href="#">COMMUNITY</a>
+    </nav>
+  </div>
+</header>
+
+<div class="intro">
+  <div class="intro-in">
+    <div class="tagline">좋은 도배의 기준을 만듭니다 · 서울·경기 프리미엄 도배</div>
+    <h1>1분이면 끝나는 <b>예상 견적</b></h1>
+    <p>공간과 평형만 선택하면 맞춤 도배 견적을 바로 안내해 드려요.</p>
+    <div class="chips"><span class="chip">실제 시공팀 운영</span><span class="chip">1년 A/S 보장</span><span class="chip">투명한 가격</span></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <div class="prog"><i id="progbar"></i></div>
+    <div class="pad" id="content"></div>
+  </div>
+</div>
+
+<div class="why">
+  <h2>왜 도배청년단인가요?</h2>
+  <div class="badges">
+    <div class="badge-c"><span class="bi">👷</span>실제 시공팀 운영</div>
+    <div class="badge-c"><span class="bi">🛡️</span>시공 후 1년 A/S</div>
+    <div class="badge-c"><span class="bi">📋</span>현장 상태 기반 견적</div>
+    <div class="badge-c"><span class="bi">🏢</span>구축아파트 시공 경험 다수</div>
+  </div>
+</div>
+<div class="social">
+  <a href="#"><span class="em">📷</span> 인스타그램 <small style="color:var(--muted);font-weight:600;">실시간 시공 현장</small></a>
+  <a href="#"><span class="em">📝</span> 네이버 블로그 <small style="color:var(--muted);font-weight:600;">전·후 사례</small></a>
+</div>
+
+<footer>© 도배청년단 · 1분 예상 견적 (베타) · 실제 견적은 무료 방문실측 후 확정됩니다</footer>
+
+<script>
+/* ============================================================
+   가격 데이터 — price-model.json 과 동일 (단위: 만원)
+   ============================================================ */
+const PRICE = {
+  modifiers:{
+    hapji:[{key:'deotbang',add:0},{key:'removeBase',add:27},{key:'fullFloat',add:55}],
+    silk:[{key:'basic'},{key:'ceilingFloat',add:30},{key:'fullInterior',absolute:true}]
+  },
+  spaces:{
+    apartment:{label:'아파트', emoji:'🏢', sizes:{
+      '15':{label:'15평형 내외', desc:'소형 평수', sqm:'전용 약 40㎡', hapjiBase:100, silk:{기획:{basic:145,fullInterior:215},일반:{basic:150,fullInterior:235},프리미엄:{basic:180,fullInterior:260}}},
+      '24':{label:'24평형 내외', desc:'방 3개 · 화장실 1~2개 구조', sqm:'전용 약 59㎡', hapjiBase:115, silk:{기획:{basic:175,fullInterior:260},일반:{basic:195,fullInterior:285},프리미엄:{basic:230,fullInterior:315}}},
+      '32':{label:'32평형 내외', desc:'가장 대중적인 국민 평수', sqm:'전용 약 84㎡', hapjiBase:160, silk:{기획:{basic:225,fullInterior:345},일반:{basic:255,fullInterior:380},프리미엄:{basic:295,fullInterior:420}}},
+      '42':{label:'42평형 내외', desc:'대형 평수 구조', sqm:'전용 약 114㎡', hapjiBase:245, silk:{기획:{basic:310,fullInterior:445},일반:{basic:355,fullInterior:485},프리미엄:{basic:410,fullInterior:540}}},
+      'large':{label:'대형 평수 / 그 이상', consult:true}
+    }},
+    villa:{label:'빌라', emoji:'🏘️', sizes:{
+      'studio':{label:'원룸 · 소형 공간', desc:'10평 미만 · 부분시공', sqm:'전용 약 25㎡ 미만', partial:{hapji:{wallOnly:35,full:55},silk:{wallOnly:50,full:70}}},
+      '18':{label:'18평형 내외', desc:'소형 아파트 · 투룸 빌라 등', sqm:'전용 약 46㎡', hapjiBase:115, silk:{기획:{basic:175,fullInterior:260},일반:{basic:195,fullInterior:285},프리미엄:{basic:230,fullInterior:315}}},
+      '24':{label:'24평형 내외', desc:'방 3개 구조', sqm:'전용 약 59㎡', hapjiBase:160, silk:{기획:{basic:225,fullInterior:345},일반:{basic:255,fullInterior:380},프리미엄:{basic:295,fullInterior:420}}},
+      '32':{label:'32평형 내외', desc:'대형 빌라', sqm:'전용 약 84㎡', hapjiBase:245, silk:{기획:{basic:310,fullInterior:445},일반:{basic:355,fullInterior:485},프리미엄:{basic:410,fullInterior:540}}},
+      '42plus':{label:'42평형 그 이상', consult:true}
+    }},
+    officetel:{label:'오피스텔', emoji:'🏬', sizes:{
+      'studio7':{label:'7평형 원룸', desc:'부분시공', sqm:'전용 약 17㎡', partial:{hapji:{wallOnly:30,full:50},silk:{wallOnly:45,full:65}}},
+      'tworoom10':{label:'10평대 투룸', desc:'투룸 구조', sqm:'전용 약 26㎡~', hapjiBase:160, silk:{기획:{basic:230,fullInterior:345},일반:{basic:260,fullInterior:380},프리미엄:{basic:295,fullInterior:420}}},
+      'more':{label:'그 이상', consult:true}
+    }},
+    commercial:{label:'상가 및 그 외 공간', emoji:'🏪', consult:true}
+  }
+};
+const CONFIG = { rangePct:0.10, roundTo:5 };
+
+/* ============================================================ 설명(특징·추천) — 대표 기획 PDF 반영 ============================================================ */
+const META = {
+  wallpaper:{
+    hapji:{emoji:'📄', name:'합지 벽지', pill:'종이벽지', feat:'종이로 이루어진 기본 벽지', rec:'가성비 위주 · 임대용 공간에 적합'},
+    silk:{emoji:'✨', name:'실크 벽지', pill:'고급벽지', feat:'표면 코팅으로 오염에 강하고 관리가 편함', rec:'직접 거주하실 공간에 강력 추천'}
+  },
+  hapjiMethod:{
+    deotbang:{name:'기본 덧방 시공', pill:'비용 절감형', feat:'현재 벽지 위에 새 벽지를 그대로 시공 (기본 제공)', rec:'최소 비용으로 빠르게 분위기를 바꾸고 싶을 때'},
+    removeBase:{name:'벽지 제거 후 밑작업', pill:'', feat:'기존 벽지를 제거하고 벽면 밑작업 진행', rec:'잘 보이는 벽면의 마감 만족도를 높이고 싶을 때'},
+    fullFloat:{name:'전체 띄움 시공', pill:'고급 마감형', feat:'천장 포함 공간 전체 초배(띄움) 작업', rec:'합지 중 가장 매끄럽고 완벽한 마감을 원할 때'}
+  },
+  grade:{
+    기획:{pill:'비용 절감형', feat:'깔끔한 대중적 벽지 (색상 선택 제한)', rec:'임대용 · 합리적 절감이 필요할 때', brand:'예: 하이브리드'},
+    일반:{pill:'', feat:'다양한 컬러와 패턴 보유', rec:'취향에 맞는 디자인을 원할 때', brand:'예: 로젠스 · 베스트'},
+    프리미엄:{pill:'하이엔드', feat:'생활기스에 강한 내구성 · 도톰한 고급 질감', rec:'오래도록 깊이 있는 마감을 원할 때', brand:'예: 디아망 · 프리오 · 파셀로'}
+  },
+  silkMethod:{
+    basic:{name:'기본 실크 시공', pill:'', feat:'기본 실크 도배 공정', note:'천장 이음새에 미세 자국·들뜸이 생길 수 있어요'},
+    ceilingFloat:{name:'천장 띄움시공 포함', pill:'균일 마감', feat:'벽+천장 띄움시공 및 정밀 밑작업', rec:'사계절 매끄러운 천장 마감을 원할 때'},
+    fullInterior:{name:'전체 인테리어 공사', pill:'풀 리모델링', feat:'천장 전체 띄움 + 벽면 퍼티(핸디코트)', rec:'몰딩·문·샷시 교체 시 필수'}
+  }
+};
+const WP_LABEL={hapji:'합지',silk:'실크'}, SCOPE_LABEL={wallOnly:'벽면만',full:'전체(벽+천장)'};
+
+/* ============================================================ 상태 / 플로우 ============================================================ */
+let S={}, history=[];
+function reset(){ S={}; history=[]; render(); window.scrollTo({top:0,behavior:'smooth'}); }
+function nextStep(){
+  if(!S.space) return 'space';
+  const sp=PRICE.spaces[S.space]; if(sp.consult) return 'consult';
+  if(!S.size) return 'size';
+  const sz=sp.sizes[S.size]; if(sz.consult) return 'consult';
+  if(sz.partial){ if(!S.wallpaper) return 'wallpaper'; if(!S.scope) return 'scope'; return 'result'; }
+  if(!S.wallpaper) return 'wallpaper';
+  if(S.wallpaper==='hapji'){ if(!S.method) return 'method_hapji'; return 'result'; }
+  if(!S.grade) return 'grade';
+  if(!S.method) return 'method_silk';
+  return 'result';
+}
+function progress(step){
+  if(step==='result'||step==='consult'||step==='done') return 100;
+  const sp=S.space?PRICE.spaces[S.space]:null, sz=(sp&&S.size)?sp.sizes[S.size]:null;
+  let total=4; if(sz){ if(sz.partial)total=4; else if(S.wallpaper==='silk')total=5; else total=4; }
+  let done=0; if(S.space)done++; if(S.size)done++; if(S.wallpaper)done++; if(S.grade)done++; if(S.method||S.scope)done++;
+  return Math.min(95, Math.round(done/total*100));
+}
+
+/* ============================================================ 계산 ============================================================ */
+function compute(){
+  const sz=PRICE.spaces[S.space].sizes[S.size]; let p;
+  if(sz.partial){ p=sz.partial[S.wallpaper][S.scope]; }
+  else if(S.wallpaper==='hapji'){ const m=PRICE.modifiers.hapji.find(o=>o.key===S.method); p=sz.hapjiBase+(m.add||0); }
+  else { const g=sz.silk[S.grade]; if(S.method==='fullInterior')p=g.fullInterior; else if(S.method==='ceilingFloat')p=g.basic+30; else p=g.basic; }
+  const r=CONFIG.roundTo;
+  return {p, min:Math.round(p*(1-CONFIG.rangePct)/r)*r, max:Math.round(p*(1+CONFIG.rangePct)/r)*r};
+}
+function sqmOf(key,v){ if(v.consult) return ''; return v.sqm||''; }  // sqm = 전용면적(표준 타입 기준)
+function methodLabel(){
+  const sz=PRICE.spaces[S.space].sizes[S.size];
+  if(sz.partial) return SCOPE_LABEL[S.scope];
+  if(S.wallpaper==='hapji') return META.hapjiMethod[S.method].name;
+  return META.silkMethod[S.method].name;
+}
+
+/* ============================================================ 렌더 ============================================================ */
+const C=document.getElementById('content'), PB=document.getElementById('progbar');
+function pushHistory(){ history.push(JSON.stringify(S)); }
+function back(){ if(history.length){ S=JSON.parse(history.pop()); render(); } }
+function choose(field,value){
+  pushHistory(); S[field]=value;
+  if(field==='space'){ S.size=S.wallpaper=S.grade=S.method=S.scope=undefined; }
+  if(field==='size'){ S.wallpaper=S.grade=S.method=S.scope=undefined; }
+  if(field==='wallpaper'){ S.grade=S.method=S.scope=undefined; }
+  if(field==='grade'){ S.method=undefined; }
+  render();
+}
+function el(html){ const d=document.createElement('div'); d.innerHTML=(html||'').trim(); return d.firstChild||document.createTextNode(''); }
+function render(){
+  const step=nextStep(); PB.style.width=progress(step)+'%'; C.innerHTML='';
+  ({space:renderSpace,size:renderSize,wallpaper:renderWallpaper,grade:renderGrade,
+    method_hapji:renderMethodHapji,method_silk:renderMethodSilk,scope:renderScope,
+    consult:renderConsult,result:renderResult}[step])();
+}
+function head(k,t,s){ return `<div class="step-head"><div class="kicker">${k}</div><div class="q-title">${t}</div>${s?`<div class="q-sub">${s}</div>`:''}</div>`; }
+function navBack(){ return history.length?`<div class="nav-row"><button class="btn btn-ghost" onclick="back()">← 이전</button></div>`:''; }
+
+/* generic option builder */
+function opt(field,value,sel,{emoji,title,pill,feat,rec,brand,note,hint,hintSub}){
+  return `<button class="opt ${sel?'sel':''}" onclick="choose('${field}','${value}')">
+    ${emoji?`<span class="emoji">${emoji}</span>`:''}
+    <span class="main">
+      <span class="ot">${title}${pill?`<span class="pill">${pill}</span>`:''}</span>
+      ${feat?`<span class="feat">${feat}</span>`:''}
+      ${rec?`<span class="rec"><b>추천</b> · ${rec}</span>`:''}
+      ${brand?`<span class="brand">${brand}</span>`:''}
+      ${note?`<span class="note-x">⚠ ${note}</span>`:''}
+    </span>
+    ${hint?`<span class="price-hint">${hint}${hintSub?`<small>${hintSub}</small>`:''}</span>`:''}
+  </button>`;
+}
+
+function renderSpace(){
+  C.appendChild(el(head('STEP 1 · 공간','어떤 공간을 시공하시나요?','공간 형태에 맞춰 가장 적합한 맞춤 도배 플랜을 안내해 드려요')));
+  let o='';
+  for(const [k,v] of Object.entries(PRICE.spaces))
+    o+=opt('space',k,S.space===k,{emoji:v.emoji,title:v.label,rec:v.consult?'현장 조건에 따라 전문가가 직접 안내':'',});
+  C.appendChild(el(`<div class="opts">${o}</div>`));
+}
+function renderSize(){
+  const sp=PRICE.spaces[S.space];
+  C.appendChild(el(head('STEP 2 · 평형',`${sp.label}, 평수를 선택해 주세요`,'평형(공급) 기준으로 선택해 주세요 · 면적은 전용면적 기준이에요')));
+  let o='';
+  for(const [k,v] of Object.entries(sp.sizes)){
+    const sqm=sqmOf(k,v);
+    o+=opt('size',k,S.size===k,{title:`${v.label}${sqm?`<span class="sqm">${sqm}</span>`:''}`,feat:v.desc||'',rec:v.consult?'전문 상담 연결':''});
+  }
+  C.appendChild(el(`<div class="opts">${o}</div>`));
+  C.appendChild(el(navBack()));
+}
+function renderWallpaper(){
+  C.appendChild(el(head('STEP 3 · 벽지','벽지 종류를 선택해 주세요','종류에 따라 가격과 마감 느낌이 달라집니다')));
+  let o='';
+  for(const k of ['hapji','silk']){ const m=META.wallpaper[k];
+    o+=opt('wallpaper',k,S.wallpaper===k,{emoji:m.emoji,title:m.name,pill:m.pill,feat:m.feat,rec:m.rec}); }
+  C.appendChild(el(`<div class="opts">${o}</div>`));
+  C.appendChild(el(navBack()));
+}
+function renderGrade(){
+  const sz=PRICE.spaces[S.space].sizes[S.size];
+  C.appendChild(el(head('STEP 4 · 실크 등급','실크 벽지 등급을 선택해 주세요','예산과 인테리어 취향에 맞춰 선택하실 수 있어요')));
+  let o='';
+  for(const g of ['기획','일반','프리미엄']){ const m=META.grade[g];
+    o+=opt('grade',g,S.grade===g,{title:g+' 실크',pill:m.pill,feat:m.feat,rec:m.rec,brand:m.brand,
+      hint:sz.silk[g].basic+'만~'}); }
+  C.appendChild(el(`<div class="opts">${o}</div>`));
+  C.appendChild(el(navBack()));
+}
+function renderMethodHapji(){
+  const sz=PRICE.spaces[S.space].sizes[S.size];
+  C.appendChild(el(head('STEP 4 · 시공 방식','시공 방식을 선택해 주세요','작업 범위와 밑작업 수준에 따라 비용·마감이 달라집니다')));
+  let o='';
+  for(const m of PRICE.modifiers.hapji){ const d=META.hapjiMethod[m.key]; const price=sz.hapjiBase+(m.add||0);
+    o+=opt('method',m.key,S.method===m.key,{title:d.name,pill:d.pill,feat:d.feat,rec:d.rec,
+      hint:'약 '+price+'만', hintSub:m.add?`+${m.add}만`:'기본'}); }
+  C.appendChild(el(`<div class="opts">${o}</div>`));
+  C.appendChild(el(navBack()));
+}
+function renderMethodSilk(){
+  const g=PRICE.spaces[S.space].sizes[S.size].silk[S.grade];
+  C.appendChild(el(head('STEP 5 · 시공 방식',`${S.grade} 실크, 시공 방식은?`,'원하시는 마감 완성도에 맞춰 선택해 주세요')));
+  const map=[['basic',g.basic],['ceilingFloat',g.basic+30],['fullInterior',g.fullInterior]];
+  let o='';
+  for(const [key,price] of map){ const d=META.silkMethod[key];
+    o+=opt('method',key,S.method===key,{title:d.name,pill:d.pill,feat:d.feat,rec:d.rec,note:d.note,
+      hint:'약 '+price+'만', hintSub:key==='ceilingFloat'?'+30만':''}); }
+  C.appendChild(el(`<div class="opts">${o}</div>`));
+  C.appendChild(el(navBack()));
+}
+function renderScope(){
+  const sz=PRICE.spaces[S.space].sizes[S.size];
+  C.appendChild(el(head('STEP 4 · 범위','시공 범위를 선택해 주세요','')));
+  let o='';
+  o+=opt('scope','wallOnly',S.scope==='wallOnly',{title:'벽면만',feat:'벽면 도배만 진행',hint:'약 '+sz.partial[S.wallpaper].wallOnly+'만'});
+  o+=opt('scope','full',S.scope==='full',{title:'전체 (벽+천장)',feat:'벽면과 천장 모두 진행',hint:'약 '+sz.partial[S.wallpaper].full+'만'});
+  C.appendChild(el(`<div class="opts">${o}</div>`));
+  C.appendChild(el(navBack()));
+}
+function renderConsult(){
+  C.appendChild(el(head('상담 연결','전문 상담이 필요한 공간이에요','선택하신 공간은 현장 조건에 따라 견적이 달라져, 담당 매니저가 직접 안내해 드립니다')));
+  C.appendChild(el(`<div class="consult-box"><div class="ce">📞</div><h2>무료 상담 신청</h2><p>연락처를 남겨주시면 빠르게 연락드릴게요</p></div>`));
+  C.appendChild(el(leadFormHTML(true)));
+  C.appendChild(el(navBack())); bindLeadForm(true);
+}
+function renderResult(){
+  const r=compute(), sz=PRICE.spaces[S.space].sizes[S.size];
+  const sqm=sqmOf(S.size,sz);
+  const rows=[['공간',PRICE.spaces[S.space].label+' · '+sz.label+(sqm?` (${sqm})`:'')],['벽지',WP_LABEL[S.wallpaper]+(S.grade?` (${S.grade})`:'')],['시공',methodLabel()]];
+  C.appendChild(el(`<div class="hero-r"><div class="rl">예상 가견적</div><div class="price">약 ${r.p}<span class="won">만원</span></div><div class="range">${r.min}만 ~ ${r.max}만원</div><div class="approx">방문실측 후 정확한 금액이 확정됩니다</div></div>`));
+  C.appendChild(el(`<div class="summary">${rows.map(([k,v])=>`<div class="row"><span class="k">${k}</span><span class="v">${v}</span></div>`).join('')}</div>`));
+  C.appendChild(el(`<div class="note"><b>안내</b> · 부가세·철거·확장 등은 현장 조건에 따라 별도일 수 있으며, 무료 방문실측 시 최종 안내드립니다. (베타 — 가격 기준은 추후 갱신)</div>`));
+  C.appendChild(el(leadFormHTML(false)));
+  C.appendChild(el(navBack())); bindLeadForm(false);
+}
+function leadFormHTML(isConsult){
+  return `<div class="form-card">
+    <h3>${isConsult?'상담 신청':'무료 방문실측 예약'}</h3>
+    <div class="fh">${isConsult?'담당 매니저가 시공 내용 확인 후 안내드립니다':'실측 후 정확한 견적을 받아보세요 · 비용 없음'}</div>
+    <div class="field"><label>성함 <span class="req">*</span></label><input id="f_name" placeholder="이름"></div>
+    <div class="field"><label>연락 가능한 번호 <span class="req">*</span></label><input id="f_phone" inputmode="numeric" placeholder="010-0000-0000"><div class="err" id="e_phone">연락처를 정확히 입력해 주세요</div></div>
+    <div class="row2">
+      <div class="field"><label>희망 시공 일정</label><select id="f_when"><option value="">선택</option><option>2주 이내</option><option>1개월 이내</option><option>1~3개월</option><option>미정</option></select></div>
+      <div class="field"><label>시공 지역</label><input id="f_region" placeholder="예: 성남 분당구"></div>
+    </div>
+    <button class="btn btn-primary" id="f_submit" style="width:100%; margin-top:6px;">${isConsult?'상담 신청하기':'예상 견적 확인하기'}</button>
+  </div>`;
+}
+function bindLeadForm(isConsult){
+  const btn=document.getElementById('f_submit'); if(!btn) return;
+  const pe=document.getElementById('f_phone');
+  pe.addEventListener('input',function(){ let d=this.value.replace(/\D/g,'').slice(0,11);
+    if(d.length>7)this.value=d.replace(/(\d{3})(\d{4})(\d+)/,'$1-$2-$3');
+    else if(d.length>3)this.value=d.replace(/(\d{3})(\d+)/,'$1-$2'); else this.value=d; });
+  btn.onclick=function(){
+    const name=(document.getElementById('f_name').value||'').trim();
+    const phone=(document.getElementById('f_phone').value||'').trim();
+    const digits=phone.replace(/\D/g,''); let ok=true;
+    if(!name){ document.getElementById('f_name').style.borderColor='#c0392b'; ok=false; }
+    if(digits.length<10||digits.length>11){ document.getElementById('e_phone').style.display='block'; ok=false; } else { document.getElementById('e_phone').style.display='none'; }
+    if(!ok) return;
+    const lead={ ts:new Date().toISOString(), type:isConsult?'상담':'실측예약', name, phone,
+      when:document.getElementById('f_when').value, region:document.getElementById('f_region').value,
+      estimate:isConsult?null:compute().p,
+      selection:{space:S.space,size:S.size,wallpaper:S.wallpaper,grade:S.grade,method:S.method,scope:S.scope} };
+    try{ const a=JSON.parse(localStorage.getItem('dobae_leads')||'[]'); a.push(lead); localStorage.setItem('dobae_leads',JSON.stringify(a)); }catch(e){}
+    renderDone(isConsult, lead);
+  };
+}
+function renderDone(isConsult, lead){
+  PB.style.width='100%'; C.innerHTML='';
+  C.appendChild(el(`<div class="done center"><div class="done-emoji">✅</div>
+    <h2>${isConsult?'상담 신청 완료':'예약 신청 완료'}</h2>
+    <p><b>${lead.name}</b> 님, 신청이 접수되었습니다.</p>
+    <p>입력하신 <b>${lead.phone}</b> 로<br>영업일 기준 빠르게 연락드릴게요.</p>
+    ${lead.estimate?`<p style="margin-top:10px;">예상 가견적 <b>약 ${lead.estimate}만원</b> · 실측 후 확정</p>`:''}
+    <button class="restart" onclick="reset()">처음으로 돌아가기</button></div>`));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+render();
+</script>
+</body>
+</html>
