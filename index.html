@@ -165,9 +165,12 @@ section.blk{padding:108px 0;}
 @media(max-width:880px){ .price-grid{grid-template-columns:1fr; gap:40px;} }
 
 /* lookbook / cases */
-.case-grid{display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 2px 16px; scrollbar-width:thin; scrollbar-color:var(--line-2) transparent;}
+.case-grid{display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 2px 16px; scrollbar-width:thin; scrollbar-color:var(--line-2) transparent; cursor:grab; user-select:none; -webkit-user-select:none;}
 .case-grid::-webkit-scrollbar{height:6px;} .case-grid::-webkit-scrollbar-thumb{background:var(--line-2); border-radius:3px;} .case-grid::-webkit-scrollbar-track{background:transparent;}
-.case{cursor:pointer; flex:0 0 clamp(280px,42%,380px); scroll-snap-align:start;}
+.case-grid.dragging{cursor:grabbing; scroll-snap-type:none; scroll-behavior:auto;}
+.case-grid img{-webkit-user-drag:none; user-select:none; pointer-events:none;}
+.case-grid.dragging .case .cmedia img{transform:none !important;}
+.case{cursor:grab; flex:0 0 clamp(280px,42%,380px); scroll-snap-align:start;}
 .lookhint{display:inline-flex; align-items:center; gap:7px; margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; letter-spacing:.06em; color:var(--point);}
 .case .cmedia{position:relative; aspect-ratio:4/3; border-radius:10px; overflow:hidden; margin-bottom:16px;}
 .case .cmedia img{width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.2,.7,.2,1); filter:saturate(.92) contrast(1.02);}
@@ -729,6 +732,18 @@ drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.cl
   addEventListener('pointermove',e=>{if(dragging)setPos(e.clientX);});
   addEventListener('pointerup',()=>dragging=false);
   if(!reduce){let t=0;demo=setInterval(()=>{t++;const p=50+Math.sin(t/7)*24;bf.style.width=p+'%';dv.style.left=p+'%';hd.style.left=p+'%';if(t>32){clearInterval(demo);demo=null;bf.style.width='50%';dv.style.left='50%';hd.style.left='50%';}},70);}
+})();
+
+// ===== 가로 룩북 드래그-투-스크롤 (마우스) =====
+(function(){
+  const cg=document.querySelector('.case-grid'); if(!cg) return;
+  let down=false,sx=0,sl=0,moved=false;
+  cg.addEventListener('pointerdown',e=>{ if(e.pointerType==='touch')return; down=true;moved=false;sx=e.pageX;sl=cg.scrollLeft;cg.classList.add('dragging'); try{cg.setPointerCapture(e.pointerId);}catch(_){}{} });
+  cg.addEventListener('pointermove',e=>{ if(!down)return; const dx=e.pageX-sx; if(Math.abs(dx)>3)moved=true; cg.scrollLeft=sl-dx; });
+  function end(){ if(!down)return; down=false; cg.classList.remove('dragging'); }
+  cg.addEventListener('pointerup',end); cg.addEventListener('pointercancel',end); cg.addEventListener('pointerleave',end);
+  cg.addEventListener('dragstart',e=>e.preventDefault());
+  cg.addEventListener('click',e=>{ if(moved){ e.preventDefault(); e.stopPropagation(); } },true);
 })();
 
 // 스크롤 진행바 폴백 (animation-timeline 미지원 브라우저)
