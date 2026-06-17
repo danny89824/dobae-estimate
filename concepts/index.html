@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>도배청년단 · 디자인 시안 보고서</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFAF7;--paper-2:#F4F1E9;--white:#fff;--ink:#16181A;--ink-2:#1E2124;--ink-3:#2B2F33;--text:#1A1A18;--muted:#76726A;--muted-2:#A29C90;--point:#A8412B;--point-lt:#DD7A52;--point-soft:#ECDBD3;--ok:#4E7B57;--line:#E7E1D7;--line-2:#D9D2C5;}
+*{box-sizing:border-box;margin:0;}
+body{background:var(--paper);color:var(--text);font-family:'Pretendard',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;padding-bottom:60px;}
+.serif{font-family:'Fraunces',serif;}.mono{font-family:'JetBrains Mono',monospace;}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--point);}
+header{background:var(--ink);color:var(--paper);padding:30px 0 28px;}
+header .wrap{display:flex;flex-direction:column;gap:6px;}
+header .ttl{font-size:26px;font-weight:900;letter-spacing:-.035em;margin-top:10px;}
+header .sub{font-size:14px;color:var(--muted-2);}
+header .eyebrow{color:var(--point-lt);}
+section{padding:34px 0;border-bottom:1px solid var(--line);}
+h2{font-size:21px;font-weight:800;letter-spacing:-.03em;margin-bottom:6px;}
+h2 em{font-style:normal;color:var(--point);}
+.lead{font-size:14.5px;color:var(--ink-3);margin-bottom:18px;}
+.applied{background:var(--white);border:1.5px solid var(--ink);border-radius:12px;padding:18px 18px 8px;margin-top:6px;}
+.applied .ah{font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.applied .ah .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);}
+.applied ul{list-style:none;padding:0;margin:0 0 10px;}
+.applied li{font-size:13.5px;padding:8px 0;border-top:1px dashed var(--line-2);display:flex;gap:9px;}
+.applied li:first-child{border-top:none;}
+.applied li b{color:var(--point);font-weight:700;}
+.applied li .t{color:var(--ink-3);}
+.roll{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);background:var(--paper-2);border-radius:8px;padding:10px 12px;margin-top:4px;}
+.concept{background:var(--white);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:18px;}
+.concept.star{border-color:var(--point);box-shadow:0 0 0 3px rgba(168,65,43,.08);}
+.c-top{padding:18px 18px 14px;border-bottom:1px solid var(--line);}
+.c-no{font-family:'Fraunces',serif;font-size:15px;color:var(--point);}
+.c-name{font-size:19px;font-weight:900;letter-spacing:-.03em;margin:2px 0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.c-star{font-size:10px;font-weight:800;color:#fff;background:var(--point);padding:3px 8px;border-radius:5px;letter-spacing:.02em;}
+.c-concept{font-size:13.5px;color:var(--ink-3);}
+.c-body{padding:16px 18px 18px;}
+.c-row{display:flex;gap:10px;font-size:13px;padding:7px 0;border-top:1px dashed var(--line-2);}
+.c-row:first-child{border-top:none;}
+.c-row .k{flex:none;width:74px;color:var(--muted);font-weight:700;font-size:12px;padding-top:1px;}
+.c-row .v{flex:1;color:var(--text);}
+.c-row .v b{color:var(--point);}
+.sw{display:flex;gap:6px;margin-top:3px;}
+.sw i{width:26px;height:26px;border-radius:6px;border:1px solid rgba(0,0,0,.08);display:block;}
+.mood{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;}
+.mood span{font-size:11px;font-weight:700;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:4px 10px;}
+.rec{background:var(--ink);color:var(--paper);border-radius:14px;padding:20px;margin-top:6px;}
+.rec .eyebrow{color:var(--point-lt);}
+.rec h3{font-size:18px;font-weight:800;letter-spacing:-.02em;margin:8px 0 8px;}
+.rec h3 em{font-style:normal;color:var(--point-lt);}
+.rec p{font-size:13.5px;color:var(--muted-2);margin-bottom:8px;}
+.rec p b{color:var(--paper);}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12.5px;}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+th{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+td b{color:var(--point);}
+.next{background:var(--point-soft);border-radius:12px;padding:18px;margin-top:6px;font-size:14px;color:var(--ink-2);}
+.next b{color:var(--point);}
+.foot{padding:24px 0 0;text-align:center;font-size:11.5px;color:var(--muted-2);}
+a.back{display:inline-flex;align-items:center;gap:7px;color:var(--point);font-weight:800;font-size:13.5px;margin-top:14px;text-decoration:none;}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <span class="eyebrow">Design Report · 내부 검토용</span>
+  <div class="ttl">홈페이지 디자인 시안 보고서</div>
+  <div class="sub">메인 "밋밋함" 해결을 위한 3가지 방향 + 이번에 바로 반영한 개선 · 2026.06.17</div>
+</div></header>
+
+<section><div class="wrap">
+  <span class="eyebrow">Now Applied · 이번에 바로 반영</span>
+  <h2>지금 <em>라이브에 반영</em>된 개선</h2>
+  <p class="lead">시안 선택과 별개로, 요청하신 수정과 "메인 살리기"는 즉시 적용했습니다.</p>
+  <div class="applied">
+    <div class="ah"><span class="dot"></span>메인(히어로) 동적 애니메이션 — 밋밋함 해소</div>
+    <ul>
+      <li><b>켄번즈 슬로 줌</b><span class="t">사진이 24초간 천천히 확대 — "공간이 살아있는" 느낌</span></li>
+      <li><b>헤드라인 줄 리빌</b><span class="t">카피가 마스크 아래에서 한 줄씩 솟아오름(벽지 펴 바르듯)</span></li>
+      <li><b>강조어 밑줄 드로우 + 콘텐츠 스태거</b><span class="t">"공간이"에 테라코타 밑줄, 요소가 차례로 등장</span></li>
+      <li><b>가견적 숫자 롤</b><span class="t">평수 바꾸면 가격이 굴러서 안착(라이브 계산 느낌)</span></li>
+      <li><b>스크롤 진행바 · 마그네틱 버튼</b><span class="t">상단 테라코타 진행선, CTA가 커서에 살짝 끌림</span></li>
+    </ul>
+    <div class="ah" style="margin-top:6px;"><span class="dot"></span>요청 수정</div>
+    <ul>
+      <li><b>가견적 가격 폰트</b><span class="t">따로 놀던 숫자 → 본문과 같은 Pretendard로 통일</span></li>
+      <li><b>VAT 10% 포함가</b><span class="t">공급가(VAT 별도)와 VAT 포함가를 구분 표기</span></li>
+      <li><b>섹션 No.5 삭제</b><span class="t">팀 정보 섹션 제거 + 메뉴·번호 정리</span></li>
+    </ul>
+    <div class="roll">🔁 롤백 안전장치 — 직전 버전을 <b>v1-stable</b> 브랜치 + <b>v1.0-magazine</b> 태그로 보존. 언제든 복귀 가능.</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">3 Directions · 시안</span>
+  <h2>더 다듬을 <em>3가지 방향</em></h2>
+  <p class="lead">아트디렉터 + 모션디자이너 분석 + Awwwards급 벤치마킹(Marvell·Studio Dado·LX지인·오늘의집). 각 안은 "밋밋함을 해결하는 무기"가 서로 다릅니다.</p>
+
+  <div class="concept">
+    <div class="c-top"><div class="c-no">시안 ①</div><div class="c-name">Standard Edition</div><div class="c-concept">절제·타이포·여백의 럭셔리 — 빼기로 긴장감을 만든다</div></div>
+    <div class="c-body">
+      <div class="c-row"><div class="k">밋밋함 해결</div><div class="v">초대형 세리프 헤드라인이 곧 비주얼 + 설계도식 그리드 라인</div></div>
+      <div class="c-row"><div class="k">히어로</div><div class="v">타입 40% / 세로 사진 60% 분할</div></div>
+      <div class="c-row"><div class="k">팔레트</div><div class="v">현 무채색 유지, 테라코타 단독 포인트 5% 엄수<div class="sw"><i style="background:#FBFAF7"></i><i style="background:#16181A"></i><i style="background:#A8412B"></i></div></div></div>
+      <div class="c-row"><div class="k">무드</div><div class="v"><div class="mood"><span>정제</span><span>설계도</span><span>매거진</span><span>확신</span><span>여백</span></div></div></div>
+      <div class="c-row"><div class="k">난이도/임팩트</div><div class="v">낮음 / 중(조용한 고급) · 리스크: 너무 조용할 수 있음</div></div>
+    </div>
+  </div>
+
+  <div class="concept star">
+    <div class="c-top"><div class="c-no">시안 ②</div><div class="c-name">The Living Wall <span class="c-star">★ 추천</span></div><div class="c-concept">시네마틱 모션 — 벽이 바뀌는 순간을 화면이 직접 보여준다</div></div>
+    <div class="c-body">
+      <div class="c-row"><div class="k">밋밋함 해결</div><div class="v"><b>Before/After 드래그 슬라이더</b> 히어로 + 가로 스크롤 룩북</div></div>
+      <div class="c-row"><div class="k">히어로</div><div class="v">풀스크린, 시공 전→후로 와이프되며 카피가 얹힘</div></div>
+      <div class="c-row"><div class="k">팔레트</div><div class="v">잉크 지배 배경(시네마틱), 테라코타 <b>#DD7A52</b> 메인 승격<div class="sw"><i style="background:#16181A"></i><i style="background:#DD7A52"></i><i style="background:#4E7B57"></i><i style="background:#FBFAF7"></i></div></div></div>
+      <div class="c-row"><div class="k">무드</div><div class="v"><div class="mood"><span>시네마틱</span><span>몰입</span><span>증명</span><span>다큐</span><span>대담</span></div></div></div>
+      <div class="c-row"><div class="k">난이도/임팩트</div><div class="v">높음 / <b>상(즉각적)</b> · 유튜브·증명 DNA와 최상 시너지</div></div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="c-top"><div class="c-no">시안 ③</div><div class="c-name">Material & Hand</div><div class="c-concept">촉각·질감 — 벽지의 결과 마감 손끝을 만질 듯 보여준다</div></div>
+    <div class="c-body">
+      <div class="c-row"><div class="k">밋밋함 해결</div><div class="v">매크로(접사) 비주얼 + 스크롤 패럴럭스로 깊이</div></div>
+      <div class="c-row"><div class="k">히어로</div><div class="v">벽지 표면 매크로 + 살짝 보이는 공간 분할</div></div>
+      <div class="c-row"><div class="k">팔레트</div><div class="v">린넨/오트밀 중간톤 추가, 따뜻한 클레이 확장<div class="sw"><i style="background:#FBFAF7"></i><i style="background:#E8E2D6"></i><i style="background:#A8412B"></i><i style="background:#4E7B57"></i></div></div></div>
+      <div class="c-row"><div class="k">무드</div><div class="v"><div class="mood"><span>촉각</span><span>결</span><span>따뜻함</span><span>장인</span><span>디테일</span></div></div></div>
+      <div class="c-row"><div class="k">난이도/임팩트</div><div class="v">중간 / 중상(정서적) · 리스크: 고품질 매크로 사진 필수</div></div>
+    </div>
+  </div>
+
+  <div class="rec">
+    <span class="eyebrow">Recommendation</span>
+    <h3>추천: <em>시안 ②</em> + ①의 타이포 규율 하이브리드</h3>
+    <p><b>이유 1.</b> 불만의 정곡("밋밋")은 정보가 아니라 움직임 문제 — ②의 Before/After가 가장 직접적.</p>
+    <p><b>이유 2.</b> "도배만 바뀌어도 공간이 바뀝니다"를 말이 아니라 <b>인터랙션으로 증명</b>.</p>
+    <p><b>이유 3.</b> 히어로·룩북에만 모션 집중 + 나머지는 ①의 절제로 — 임팩트와 신뢰·구현현실성 동시 확보.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Motion · 우선 적용 순서</span>
+  <h2>모션 <em>TOP 5</em></h2>
+  <table>
+    <tr><th>효과</th><th>임팩트</th><th>상태</th></tr>
+    <tr><td><b>헤드라인 줄 마스크 리빌</b></td><td>매우높음</td><td>✅ 반영</td></tr>
+    <tr><td><b>켄번즈 슬로 줌</b></td><td>높음</td><td>✅ 반영</td></tr>
+    <tr><td>trust 숫자 카운트업</td><td>높음</td><td>✅ 기존+강화</td></tr>
+    <tr><td><b>가견적 숫자 롤</b></td><td>높음</td><td>✅ 반영</td></tr>
+    <tr><td>스크롤 진행바</td><td>중간</td><td>✅ 반영</td></tr>
+    <tr><td>Before/After 슬라이더</td><td>매우높음</td><td>시안 ② 선택 시</td></tr>
+    <tr><td>가로 스크롤 룩북</td><td>높음</td><td>시안 ② 선택 시</td></tr>
+  </table>
+  <p class="lead" style="margin-top:14px;font-size:12.5px;">모든 모션은 transform/opacity만 사용, <span class="mono">prefers-reduced-motion</span> 폴백 적용 — LCP·성능·접근성 안전.</p>
+</div></section>
+
+<section style="border-bottom:none;"><div class="wrap">
+  <span class="eyebrow">Next</span>
+  <h2>다음 <em>단계</em></h2>
+  <div class="next">
+    위 <b>3가지 시안 중 하나</b>를 골라 주시면, 그 방향으로 본격 적용합니다.<br>
+    (예: <b>"②번으로 가자"</b> → Before/After 슬라이더 히어로 + 가로 룩북 구현)<br><br>
+    지금 라이브(<b>danny89824.github.io/dobae-estimate</b>)에는 즉시 개선분이 이미 반영돼 있습니다. 마음에 안 들면 <b>v1-stable</b>로 롤백 가능합니다.
+    <a class="back" href="../">← 라이브 홈페이지 보기</a>
+  </div>
+  <div class="foot">© 2026 도배청년단 · 디자인 시안 보고서 (내부 검토용)</div>
+</div></section>
+</body>
+</html>
