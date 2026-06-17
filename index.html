@@ -15,11 +15,11 @@
 :root{
   /* magazine — neutral 95% + single point */
   --paper:#FBFAF7; --paper-2:#F4F1E9; --white:#FFFFFF;
-  --ink:#16181A; --ink-2:#1E2124; --ink-3:#2B2F33;
-  --text:#1A1A18; --muted:#76726A; --muted-2:#A29C90;
+  --ink:#272320; --ink-2:#332E29; --ink-3:#423B34;
+  --text:#1A1A18; --muted:#76726A; --muted-2:#ABA294;
   --point:#A8412B; --point-d:#8C3520; --point-soft:#ECDBD3; --point-lt:#DD7A52;
   --ok:#4E7B57;
-  --line:#E7E1D7; --line-2:#D9D2C5; --line-d:#2D3135;
+  --line:#E7E1D7; --line-2:#D9D2C5; --line-d:#494139;
   --maxw:1240px;
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
@@ -89,7 +89,7 @@ body.dragging-x, body.dragging-x *{user-select:none !important; -webkit-user-sel
 @media(max-width:700px){ .scrollcue{display:none;} .hero-media::after{background:linear-gradient(0deg, rgba(16,18,20,.85) 5%, rgba(16,18,20,.35) 60%, rgba(16,18,20,.2));} }
 
 /* ===== Standard (오늘의집식 3기둥) ===== */
-.standard{background:var(--ink); color:var(--paper);}
+.standard{background:radial-gradient(125% 150% at 84% -12%, #38332C 0%, var(--ink) 56%); color:var(--paper);}
 .std-in{max-width:var(--maxw); margin:0 auto; padding:54px 32px;}
 .std-head{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:30px;}
 .std-head h2{font-size:23px; font-weight:800; letter-spacing:-.03em; margin:10px 0 0;}
@@ -185,7 +185,7 @@ section.blk{padding:108px 0;}
 .case .cspec .amt{font-family:'JetBrains Mono',monospace; color:var(--point); font-weight:700;}
 
 /* reviews (오늘의집식 검증 후기 + 강점 태그) */
-.rev-sec{background:var(--ink); color:var(--paper);}
+.rev-sec{background:radial-gradient(120% 130% at 12% -10%, #38332C 0%, var(--ink) 54%); color:var(--paper);}
 .rev-sec .sec-head h2{color:#fff;} .rev-sec .sec-head p{color:var(--muted-2);} .rev-sec .sec-head .idx{color:var(--point-soft);} .rev-sec .sec-head h2 em{color:var(--point-lt);}
 .verified{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; color:var(--paper); background:rgba(78,123,87,.18); border:1px solid rgba(78,123,87,.5); padding:7px 14px; border-radius:999px; margin-bottom:30px;}
 .verified svg{color:#7fd49a;}
@@ -265,7 +265,7 @@ footer ul a:hover{color:var(--point-soft);}
 .foot-bottom{border-top:1px solid var(--line-d); padding-top:26px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12px; color:var(--muted);}
 
 /* mobile sticky */
-.sticky-cta{position:fixed; left:0; right:0; bottom:0; z-index:60; display:none; gap:10px; padding:11px 14px calc(11px + env(safe-area-inset-bottom)); background:rgba(22,24,26,.97); backdrop-filter:blur(8px); border-top:1px solid var(--line-d);}
+.sticky-cta{position:fixed; left:0; right:0; bottom:0; z-index:60; display:none; gap:10px; padding:11px 14px calc(11px + env(safe-area-inset-bottom)); background:rgba(39,35,32,.97); backdrop-filter:blur(8px); border-top:1px solid var(--line-d);}
 .sticky-cta .btn{flex:1; padding:15px; font-size:15px;}
 .sticky-cta .btn-call{flex:none; background:var(--ink-3); color:#fff; border:1px solid var(--line-d); width:54px; padding:15px 0;}
 @media(max-width:960px){ .sticky-cta{display:flex;} body{padding-bottom:74px;} }
