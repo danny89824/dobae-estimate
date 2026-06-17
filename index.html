@@ -70,7 +70,8 @@ header.solid .menu-btn{background:var(--ink); border-color:var(--ink); color:#ff
 @media(max-width:960px){ nav.main, .head-cta{display:none;} .menu-btn{display:inline-flex; align-items:center; justify-content:center;} }
 
 /* ===== Hero ===== */
-.hero{position:relative; min-height:92vh; display:flex; align-items:flex-end; overflow:hidden; isolation:isolate; cursor:ew-resize;}
+.hero{position:relative; min-height:92vh; display:flex; align-items:flex-end; overflow:hidden; isolation:isolate; cursor:ew-resize; user-select:none; -webkit-user-select:none; touch-action:pan-y;}
+body.dragging-x, body.dragging-x *{user-select:none !important; -webkit-user-select:none !important;}
 .hero-media{position:absolute; inset:0; z-index:1;}
 .hero-media img{width:100%; height:100%; object-fit:cover; filter:saturate(.92) contrast(1.02);}
 .hero-media::after{content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(16,18,20,.82) 0%, rgba(16,18,20,.5) 42%, rgba(16,18,20,.12) 75%), linear-gradient(0deg, rgba(16,18,20,.55), transparent 45%);}
@@ -329,7 +330,9 @@ footer ul a:hover{color:var(--point-soft);}
 .hero .ba-after,.hero .ba-before img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none;}
 .hero .ba-after{z-index:1; filter:saturate(1.02) contrast(1.03);}
 .hero .ba-before{position:absolute; inset:0; width:50%; overflow:hidden; z-index:2; will-change:width;}
-.hero .ba-before img{width:100vw; max-width:none; filter:saturate(.6) brightness(.78) contrast(.96);}
+.hero .ba-before img{width:100vw; max-width:none; filter:sepia(.42) saturate(.62) brightness(.84) contrast(.92);}
+.hero .ba-before::after{content:""; position:absolute; inset:0; pointer-events:none; opacity:.42; mix-blend-mode:multiply; background-color:rgba(150,120,70,.1);
+  background-image:repeating-linear-gradient(45deg, rgba(110,80,45,.16) 0 7px, transparent 7px 20px), repeating-linear-gradient(-45deg, rgba(110,80,45,.12) 0 7px, transparent 7px 20px);}
 .ba-tag{position:absolute; top:86px; z-index:4; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:.1em; padding:6px 11px; border-radius:6px; background:rgba(16,18,20,.55); backdrop-filter:blur(5px); pointer-events:none;}
 .ba-b{left:24px; color:#d6c5b8;} .ba-a{right:24px; color:var(--point-lt);}
 .hero-scrim{position:absolute; inset:0; z-index:3; pointer-events:none; background:linear-gradient(100deg, rgba(16,18,20,.82) 0%, rgba(16,18,20,.46) 34%, rgba(16,18,20,.08) 58%, rgba(16,18,20,.34) 100%), linear-gradient(0deg, rgba(16,18,20,.6), transparent 44%);}
@@ -385,10 +388,10 @@ footer ul a:hover{color:var(--point-soft);}
 
 <!-- ===== Hero (The Living Wall · Before/After) ===== -->
 <section class="hero" id="hero">
-  <img class="ba-after" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1800&q=80&auto=format&fit=crop" alt="도배 후 — 도배청년단 시공" fetchpriority="high">
-  <div class="ba-before" id="baBefore"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1800&q=80&auto=format&fit=crop" alt="도배 전"></div>
-  <span class="ba-tag ba-b">BEFORE · 시공 전</span>
-  <span class="ba-tag ba-a">AFTER · 도배청년단</span>
+  <img class="ba-after" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1800&q=80&auto=format&fit=crop" alt="도배 후 — 같은 공간, 새 벽지" fetchpriority="high">
+  <div class="ba-before" id="baBefore"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1800&q=80&auto=format&fit=crop" alt="도배 전 — 같은 공간, 낡은 벽지"></div>
+  <span class="ba-tag ba-b">BEFORE · 낡은 벽지</span>
+  <span class="ba-tag ba-a">AFTER · 새 벽지</span>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="ba-divider" id="baDivider" aria-hidden="true"></div>
   <div class="ba-handle" id="baHandle" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -728,9 +731,9 @@ drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.cl
   const bf=document.getElementById('baBefore'),dv=document.getElementById('baDivider'),hd=document.getElementById('baHandle');
   let dragging=false,demo=null;
   function setPos(x){const r=hero.getBoundingClientRect();let p=Math.max(4,Math.min(96,((x-r.left)/r.width)*100));bf.style.width=p+'%';dv.style.left=p+'%';hd.style.left=p+'%';}
-  hero.addEventListener('pointerdown',e=>{if(e.target.closest('a,button'))return;if(demo){clearInterval(demo);demo=null;}dragging=true;setPos(e.clientX);});
+  hero.addEventListener('pointerdown',e=>{if(e.target.closest('a,button'))return;if(e.pointerType==='mouse')e.preventDefault();if(demo){clearInterval(demo);demo=null;}dragging=true;document.body.classList.add('dragging-x');setPos(e.clientX);});
   addEventListener('pointermove',e=>{if(dragging)setPos(e.clientX);});
-  addEventListener('pointerup',()=>dragging=false);
+  addEventListener('pointerup',()=>{dragging=false;document.body.classList.remove('dragging-x');});
   if(!reduce){let t=0;demo=setInterval(()=>{t++;const p=50+Math.sin(t/7)*24;bf.style.width=p+'%';dv.style.left=p+'%';hd.style.left=p+'%';if(t>32){clearInterval(demo);demo=null;bf.style.width='50%';dv.style.left='50%';hd.style.left='50%';}},70);}
 })();
 
@@ -738,9 +741,9 @@ drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.cl
 (function(){
   const cg=document.querySelector('.case-grid'); if(!cg) return;
   let down=false,sx=0,sl=0,moved=false;
-  cg.addEventListener('pointerdown',e=>{ if(e.pointerType==='touch')return; down=true;moved=false;sx=e.pageX;sl=cg.scrollLeft;cg.classList.add('dragging'); try{cg.setPointerCapture(e.pointerId);}catch(_){}{} });
+  cg.addEventListener('pointerdown',e=>{ if(e.pointerType==='touch')return; e.preventDefault(); down=true;moved=false;sx=e.pageX;sl=cg.scrollLeft;cg.classList.add('dragging');document.body.classList.add('dragging-x'); try{cg.setPointerCapture(e.pointerId);}catch(_){} });
   cg.addEventListener('pointermove',e=>{ if(!down)return; const dx=e.pageX-sx; if(Math.abs(dx)>3)moved=true; cg.scrollLeft=sl-dx; });
-  function end(){ if(!down)return; down=false; cg.classList.remove('dragging'); }
+  function end(){ if(!down)return; down=false; cg.classList.remove('dragging'); document.body.classList.remove('dragging-x'); }
   cg.addEventListener('pointerup',end); cg.addEventListener('pointercancel',end); cg.addEventListener('pointerleave',end);
   cg.addEventListener('dragstart',e=>e.preventDefault());
   cg.addEventListener('click',e=>{ if(moved){ e.preventDefault(); e.stopPropagation(); } },true);
