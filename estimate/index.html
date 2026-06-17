@@ -13,12 +13,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FBFAF7; --paper-2:#F4F1E9; --white:#FFFFFF;
-  --ink:#272320; --ink-2:#332E29; --ink-3:#423B34;
-  --text:#1A1A18; --muted:#76726A; --muted-2:#ABA294;
-  --point:#A8412B; --point-d:#8C3520; --point-lt:#DD7A52; --point-soft:#ECDBD3;
-  --ok:#4E7B57; --warn:#B0462E;
-  --line:#E7E1D7; --line-2:#D9D2C5; --line-d:#494139;
+  --paper:#F6F5F1; --paper-2:#ECEAE3; --white:#FFFFFF;
+  --ink:#16201B; --ink-2:#1E2B24; --ink-3:#2C3A31;
+  --text:#171A18; --muted:#6E726B; --muted-2:#9AA39A;
+  --point:#1F5640; --point-d:#163F2F; --point-lt:#C9A86A; --point-soft:#DCE6DF;
+  --ok:#3E7A57; --warn:#B0462E;
+  --line:#E2DFD6; --line-2:#D2CEC2; --line-d:#33433A;
   --maxw:740px;
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
@@ -182,9 +182,9 @@ footer{text-align:center; color:var(--muted-2); font-size:11.5px; padding:26px 1
       <svg class="emblem" viewBox="0 0 48 48" fill="none" aria-hidden="true">
         <path d="M24 5 L41 18 L41 41 Q41 43 39 43 L9 43 Q7 43 7 41 L7 18 Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
         <circle cx="24" cy="31" r="7" stroke="currentColor" stroke-width="2"/>
-        <path d="M16.6 28.5 A7.4 7.4 0 0 1 31.4 28.5 Z" fill="#A8412B"/>
-        <path d="M30 27.4 L37 27.4 Q38.2 27.4 38.2 28.6 L38.2 29 Q38.2 30.2 37 30.2 L30 30.2 Z" fill="#A8412B"/>
-        <circle cx="24" cy="20.4" r="1.5" fill="#A8412B"/>
+        <path d="M16.6 28.5 A7.4 7.4 0 0 1 31.4 28.5 Z" fill="#1F5640"/>
+        <path d="M30 27.4 L37 27.4 Q38.2 27.4 38.2 28.6 L38.2 29 Q38.2 30.2 37 30.2 L30 30.2 Z" fill="#1F5640"/>
+        <circle cx="24" cy="20.4" r="1.5" fill="#1F5640"/>
         <circle cx="21.2" cy="31.6" r="1" fill="currentColor"/><circle cx="26.8" cy="31.6" r="1" fill="currentColor"/>
         <path d="M21.4 34.6 Q24 36.6 26.6 34.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
@@ -471,7 +471,7 @@ function renderResult(){
   const rows=[['공간',PRICE.spaces[S.space].label+' · '+sz.label+(sqm?` (${sqm})`:'')],['벽지',WP_LABEL[S.wallpaper]+(S.grade?` (${S.grade})`:'')],['시공',methodLabel()],['공급가 (VAT 별도)','약 '+r.p+'만원'],['VAT 포함가 (10%)','약 '+vatP+'만원']];
   const marker=Math.max(8,Math.min(92,Math.round((r.p-r.min)/(r.max-r.min||1)*100)));
   C.appendChild(el(`<div class="rcard">
-    <div class="rtop"><span class="t"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="5" y="2.5" width="14" height="19" rx="2" stroke="#FBFAF7" stroke-width="1.6"/><path d="M9 7h6M9 11h6M9 15h4" stroke="#DD7A52" stroke-width="1.8" stroke-linecap="round"/></svg>예상 가견적서</span><span class="stamp">EST.</span></div>
+    <div class="rtop"><span class="t"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="5" y="2.5" width="14" height="19" rx="2" stroke="#FBFAF7" stroke-width="1.6"/><path d="M9 7h6M9 11h6M9 15h4" stroke="#C9A86A" stroke-width="1.8" stroke-linecap="round"/></svg>예상 가견적서</span><span class="stamp">EST.</span></div>
     <div class="rbody">
       <div class="rl">예상 견적</div>
       <div class="rprice">약 ${r.p}<span class="won">만원</span></div>

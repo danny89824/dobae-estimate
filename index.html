@@ -14,12 +14,12 @@
 <style>
 :root{
   /* magazine — neutral 95% + single point */
-  --paper:#FBFAF7; --paper-2:#F4F1E9; --white:#FFFFFF;
-  --ink:#272320; --ink-2:#332E29; --ink-3:#423B34;
-  --text:#1A1A18; --muted:#76726A; --muted-2:#ABA294;
-  --point:#A8412B; --point-d:#8C3520; --point-soft:#ECDBD3; --point-lt:#DD7A52;
-  --ok:#4E7B57;
-  --line:#E7E1D7; --line-2:#D9D2C5; --line-d:#494139;
+  --paper:#F6F5F1; --paper-2:#ECEAE3; --white:#FFFFFF;
+  --ink:#16201B; --ink-2:#1E2B24; --ink-3:#2C3A31;
+  --text:#171A18; --muted:#6E726B; --muted-2:#9AA39A;
+  --point:#1F5640; --point-d:#163F2F; --point-soft:#DCE6DF; --point-lt:#C9A86A;
+  --ok:#3E7A57;
+  --line:#E2DFD6; --line-2:#D2CEC2; --line-d:#33433A;
   --maxw:1240px;
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
@@ -74,7 +74,7 @@ header.solid .menu-btn{background:var(--ink); border-color:var(--ink); color:#ff
 body.dragging-x, body.dragging-x *{user-select:none !important; -webkit-user-select:none !important;}
 .hero-media{position:absolute; inset:0; z-index:1;}
 .hero-media img{width:100%; height:100%; object-fit:cover; filter:saturate(.92) contrast(1.02);}
-.hero-media::after{content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(16,18,20,.82) 0%, rgba(16,18,20,.5) 42%, rgba(16,18,20,.12) 75%), linear-gradient(0deg, rgba(16,18,20,.55), transparent 45%);}
+.hero-media::after{content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(18,28,23,.82) 0%, rgba(18,28,23,.5) 42%, rgba(18,28,23,.12) 75%), linear-gradient(0deg, rgba(18,28,23,.55), transparent 45%);}
 .hero-in{position:relative; z-index:2; width:100%; padding-bottom:62px; padding-top:130px;}
 .hero h1{color:#fff; font-size:clamp(40px,6.2vw,74px); line-height:1.04; font-weight:800; letter-spacing:-.045em; margin:22px 0 22px; max-width:15em; text-shadow:0 2px 30px rgba(0,0,0,.25);}
 .hero h1 em{color:var(--point-lt);}
@@ -86,10 +86,10 @@ body.dragging-x, body.dragging-x *{user-select:none !important; -webkit-user-sel
 .hero-trust .ht .v .u{font-family:'Pretendard'; font-size:13px; font-weight:700; color:rgba(255,255,255,.75); margin-left:3px;}
 .hero-trust .ht .k{font-size:12px; color:rgba(255,255,255,.7); margin-top:6px;}
 .scrollcue{position:absolute; right:34px; bottom:30px; z-index:2; color:rgba(255,255,255,.7); font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.2em; writing-mode:vertical-rl; display:flex; align-items:center; gap:10px;}
-@media(max-width:700px){ .scrollcue{display:none;} .hero-media::after{background:linear-gradient(0deg, rgba(16,18,20,.85) 5%, rgba(16,18,20,.35) 60%, rgba(16,18,20,.2));} }
+@media(max-width:700px){ .scrollcue{display:none;} .hero-media::after{background:linear-gradient(0deg, rgba(18,28,23,.85) 5%, rgba(18,28,23,.35) 60%, rgba(18,28,23,.2));} }
 
 /* ===== Standard (오늘의집식 3기둥) ===== */
-.standard{background:radial-gradient(125% 150% at 84% -12%, #38332C 0%, var(--ink) 56%); color:var(--paper);}
+.standard{background:radial-gradient(125% 150% at 84% -12%, #26352C 0%, var(--ink) 56%); color:var(--paper);}
 .std-in{max-width:var(--maxw); margin:0 auto; padding:54px 32px;}
 .std-head{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:30px;}
 .std-head h2{font-size:23px; font-weight:800; letter-spacing:-.03em; margin:10px 0 0;}
@@ -107,7 +107,7 @@ body.dragging-x, body.dragging-x *{user-select:none !important; -webkit-user-sel
 .man-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center;}
 .man-photo{position:relative; aspect-ratio:4/5; border-radius:10px; overflow:hidden;}
 .man-photo img{width:100%; height:100%; object-fit:cover; filter:saturate(.92) contrast(1.02);}
-.man-photo .cap{position:absolute; left:16px; bottom:14px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#fff; background:rgba(16,18,20,.55); padding:5px 10px; border-radius:5px; backdrop-filter:blur(4px);}
+.man-photo .cap{position:absolute; left:16px; bottom:14px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#fff; background:rgba(18,28,23,.55); padding:5px 10px; border-radius:5px; backdrop-filter:blur(4px);}
 .man-copy h2{font-family:'Fraunces',serif; font-weight:400; font-size:clamp(28px,3.6vw,42px); line-height:1.22; letter-spacing:-.01em; margin:22px 0 26px;}
 .man-copy p{font-size:16.5px; color:var(--ink-3); margin:0 0 16px; max-width:34em;}
 .man-copy p b{font-weight:700; color:var(--text);}
@@ -177,7 +177,7 @@ section.blk{padding:108px 0;}
 .case .cmedia img{width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.2,.7,.2,1); filter:saturate(.92) contrast(1.02);}
 .case:hover .cmedia img{transform:scale(1.05);}
 .case .cmedia .no{position:absolute; top:13px; left:14px; font-family:'Fraunces',serif; font-size:15px; color:#fff; text-shadow:0 1px 6px rgba(0,0,0,.4);}
-.case .cmedia .ba{position:absolute; top:12px; right:12px; font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.08em; color:#fff; background:rgba(16,18,20,.6); padding:4px 9px; border-radius:5px; backdrop-filter:blur(4px);}
+.case .cmedia .ba{position:absolute; top:12px; right:12px; font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.08em; color:#fff; background:rgba(18,28,23,.6); padding:4px 9px; border-radius:5px; backdrop-filter:blur(4px);}
 .case .ctag{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--point); font-weight:700; letter-spacing:.04em;}
 .case .ctitle{font-size:17px; font-weight:700; letter-spacing:-.02em; margin:8px 0 12px;}
 .case .cspec{display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:var(--muted);}
@@ -185,7 +185,7 @@ section.blk{padding:108px 0;}
 .case .cspec .amt{font-family:'JetBrains Mono',monospace; color:var(--point); font-weight:700;}
 
 /* reviews (오늘의집식 검증 후기 + 강점 태그) */
-.rev-sec{background:radial-gradient(120% 130% at 12% -10%, #38332C 0%, var(--ink) 54%); color:var(--paper);}
+.rev-sec{background:radial-gradient(120% 130% at 12% -10%, #26352C 0%, var(--ink) 54%); color:var(--paper);}
 .rev-sec .sec-head h2{color:#fff;} .rev-sec .sec-head p{color:var(--muted-2);} .rev-sec .sec-head .idx{color:var(--point-soft);} .rev-sec .sec-head h2 em{color:var(--point-lt);}
 .verified{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; color:var(--paper); background:rgba(78,123,87,.18); border:1px solid rgba(78,123,87,.5); padding:7px 14px; border-radius:999px; margin-bottom:30px;}
 .verified svg{color:#7fd49a;}
@@ -265,7 +265,7 @@ footer ul a:hover{color:var(--point-soft);}
 .foot-bottom{border-top:1px solid var(--line-d); padding-top:26px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12px; color:var(--muted);}
 
 /* mobile sticky */
-.sticky-cta{position:fixed; left:0; right:0; bottom:0; z-index:60; display:none; gap:10px; padding:11px 14px calc(11px + env(safe-area-inset-bottom)); background:rgba(39,35,32,.97); backdrop-filter:blur(8px); border-top:1px solid var(--line-d);}
+.sticky-cta{position:fixed; left:0; right:0; bottom:0; z-index:60; display:none; gap:10px; padding:11px 14px calc(11px + env(safe-area-inset-bottom)); background:rgba(18,28,23,.97); backdrop-filter:blur(8px); border-top:1px solid var(--line-d);}
 .sticky-cta .btn{flex:1; padding:15px; font-size:15px;}
 .sticky-cta .btn-call{flex:none; background:var(--ink-3); color:#fff; border:1px solid var(--line-d); width:54px; padding:15px 0;}
 @media(max-width:960px){ .sticky-cta{display:flex;} body{padding-bottom:74px;} }
@@ -330,19 +330,21 @@ footer ul a:hover{color:var(--point-soft);}
 .hero .ba-after,.hero .ba-before img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none;}
 .hero .ba-after{z-index:1; filter:saturate(1.02) contrast(1.03);}
 .hero .ba-before{position:absolute; inset:0; width:50%; overflow:hidden; z-index:2; will-change:width;}
-.hero .ba-before img{width:100vw; max-width:none; filter:sepia(.42) saturate(.62) brightness(.84) contrast(.92);}
-.hero .ba-before::after{content:""; position:absolute; inset:0; pointer-events:none; opacity:.42; mix-blend-mode:multiply; background-color:rgba(150,120,70,.1);
-  background-image:repeating-linear-gradient(45deg, rgba(110,80,45,.16) 0 7px, transparent 7px 20px), repeating-linear-gradient(-45deg, rgba(110,80,45,.12) 0 7px, transparent 7px 20px);}
-.hero .ba-before.recolored img{filter:saturate(.96) brightness(.97);}
-.hero .ba-before.recolored::after{display:none;}
-.ba-tag{position:absolute; top:86px; z-index:4; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:.1em; padding:6px 11px; border-radius:6px; background:rgba(16,18,20,.55); backdrop-filter:blur(5px); pointer-events:none;}
-.ba-b{left:24px; color:#d6c5b8;} .ba-a{right:24px; color:var(--point-lt);}
-.hero-scrim{position:absolute; inset:0; z-index:3; pointer-events:none; background:linear-gradient(100deg, rgba(16,18,20,.82) 0%, rgba(16,18,20,.46) 34%, rgba(16,18,20,.08) 58%, rgba(16,18,20,.34) 100%), linear-gradient(0deg, rgba(16,18,20,.6), transparent 44%);}
+.hero .ba-before img{width:100vw; max-width:none; filter:saturate(.95) brightness(.97);}
+/* 벽 영역에만 입히는 '낡은 벽지' 다마스크 패턴 (필터가 아니라 벽지 교체로 보이게) */
+.hero .ba-paper{position:absolute; left:0; top:0; width:100vw; height:57%; z-index:1; pointer-events:none;
+  background-color:rgba(95,110,92,.32);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='96'%3E%3Cg fill='none' stroke='%235d6b58' stroke-width='1.3' opacity='0.6'%3E%3Cpath d='M32 4C48 22 48 42 32 60 16 42 16 22 32 4Z'/%3E%3Cpath d='M32 60C40 70 40 84 32 94 24 84 24 70 32 60Z'/%3E%3Ccircle cx='32' cy='32' r='3'/%3E%3Cpath d='M16 30C8 36 8 48 16 54'/%3E%3Cpath d='M48 30C56 36 56 48 48 54'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:62px 92px; mix-blend-mode:multiply; opacity:.92;
+  -webkit-mask-image:linear-gradient(180deg,#000 68%,transparent 100%); mask-image:linear-gradient(180deg,#000 68%,transparent 100%);}
+.ba-tag{position:absolute; top:86px; z-index:4; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:.1em; padding:6px 11px; border-radius:6px; background:rgba(18,28,23,.55); backdrop-filter:blur(5px); pointer-events:none;}
+.ba-b{left:24px; color:#b3bcb2;} .ba-a{right:24px; color:var(--point-lt);}
+.hero-scrim{position:absolute; inset:0; z-index:3; pointer-events:none; background:linear-gradient(100deg, rgba(18,28,23,.82) 0%, rgba(18,28,23,.46) 34%, rgba(18,28,23,.08) 58%, rgba(18,28,23,.34) 100%), linear-gradient(0deg, rgba(18,28,23,.6), transparent 44%);}
 .ba-divider{position:absolute; top:0; bottom:0; left:50%; width:2px; z-index:4; background:var(--point-lt); transform:translateX(-1px); pointer-events:none;}
 .ba-handle{position:absolute; top:32%; left:50%; z-index:4; width:50px; height:50px; border-radius:50%; background:var(--point-lt); border:3px solid #fff; box-shadow:0 6px 20px rgba(0,0,0,.45); display:flex; align-items:center; justify-content:center; transform:translate(-50%,-50%); pointer-events:none;}
 .hero .hero-in{z-index:5;}
 .hero .scrollcue{z-index:5;}
-@media(max-width:700px){ .ba-tag{top:74px; font-size:9.5px;} .ba-handle{top:27%;} .hero-scrim{background:linear-gradient(0deg, rgba(16,18,20,.86) 6%, rgba(16,18,20,.3) 52%, rgba(16,18,20,.46)), linear-gradient(100deg, rgba(16,18,20,.72), rgba(16,18,20,.2) 62%);} }
+@media(max-width:700px){ .ba-tag{top:74px; font-size:9.5px;} .ba-handle{top:27%;} .hero-scrim{background:linear-gradient(0deg, rgba(18,28,23,.86) 6%, rgba(18,28,23,.3) 52%, rgba(18,28,23,.46)), linear-gradient(100deg, rgba(18,28,23,.72), rgba(18,28,23,.2) 62%);} }
 </style>
 </head>
 <body>
@@ -355,9 +357,9 @@ footer ul a:hover{color:var(--point-soft);}
       <svg class="emblem" viewBox="0 0 48 48" fill="none" aria-hidden="true">
         <path d="M24 5 L41 18 L41 41 Q41 43 39 43 L9 43 Q7 43 7 41 L7 18 Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
         <circle cx="24" cy="31" r="7" stroke="currentColor" stroke-width="2"/>
-        <path d="M16.6 28.5 A7.4 7.4 0 0 1 31.4 28.5 Z" fill="#A8412B"/>
-        <path d="M30 27.4 L37 27.4 Q38.2 27.4 38.2 28.6 L38.2 29 Q38.2 30.2 37 30.2 L30 30.2 Z" fill="#A8412B"/>
-        <circle cx="24" cy="20.4" r="1.5" fill="#A8412B"/>
+        <path d="M16.6 28.5 A7.4 7.4 0 0 1 31.4 28.5 Z" fill="#1F5640"/>
+        <path d="M30 27.4 L37 27.4 Q38.2 27.4 38.2 28.6 L38.2 29 Q38.2 30.2 37 30.2 L30 30.2 Z" fill="#1F5640"/>
+        <circle cx="24" cy="20.4" r="1.5" fill="#1F5640"/>
         <circle cx="21.2" cy="31.6" r="1" fill="currentColor"/>
         <circle cx="26.8" cy="31.6" r="1" fill="currentColor"/>
         <path d="M21.4 34.6 Q24 36.6 26.6 34.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -391,7 +393,7 @@ footer ul a:hover{color:var(--point-soft);}
 <!-- ===== Hero (The Living Wall · Before/After) ===== -->
 <section class="hero" id="hero">
   <img class="ba-after" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1800&q=80&auto=format&fit=crop" alt="도배 후 — 같은 공간, 새 벽지" fetchpriority="high">
-  <div class="ba-before" id="baBefore"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1800&q=80&auto=format&fit=crop" alt="도배 전 — 같은 공간, 낡은 벽지"></div>
+  <div class="ba-before" id="baBefore"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1800&q=80&auto=format&fit=crop" alt="도배 전 — 같은 공간, 낡은 벽지"><div class="ba-paper"></div></div>
   <span class="ba-tag ba-b">BEFORE · 낡은 벽지</span>
   <span class="ba-tag ba-a">AFTER · 새 벽지</span>
   <div class="hero-scrim" aria-hidden="true"></div>
@@ -499,7 +501,7 @@ footer ul a:hover{color:var(--point-soft);}
     </div>
     <div class="reveal" style="transition-delay:.1s">
       <div class="est-card">
-        <div class="est-top"><span class="t"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="5" y="2.5" width="14" height="19" rx="2" stroke="#FBFAF7" stroke-width="1.6"/><path d="M9 7h6M9 11h6M9 15h4" stroke="#A8412B" stroke-width="1.8" stroke-linecap="round"/></svg>내 집 기준가</span><span class="live"><span class="ld"></span>LIVE</span></div>
+        <div class="est-top"><span class="t"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="5" y="2.5" width="14" height="19" rx="2" stroke="#FBFAF7" stroke-width="1.6"/><path d="M9 7h6M9 11h6M9 15h4" stroke="#1F5640" stroke-width="1.8" stroke-linecap="round"/></svg>내 집 기준가</span><span class="live"><span class="ld"></span>LIVE</span></div>
         <div class="est-body">
           <div class="est-q"><span>아파트 · 실크(일반) · 기본도배 기준</span><span class="meta">STEP 1/4</span></div>
           <div class="size-row" id="sizeRow">
@@ -654,9 +656,9 @@ footer ul a:hover{color:var(--point-soft);}
           <svg class="emblem" viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <path d="M24 5 L41 18 L41 41 Q41 43 39 43 L9 43 Q7 43 7 41 L7 18 Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
             <circle cx="24" cy="31" r="7" stroke="currentColor" stroke-width="2"/>
-            <path d="M16.6 28.5 A7.4 7.4 0 0 1 31.4 28.5 Z" fill="#DD7A52"/>
-            <path d="M30 27.4 L37 27.4 Q38.2 27.4 38.2 28.6 L38.2 29 Q38.2 30.2 37 30.2 L30 30.2 Z" fill="#DD7A52"/>
-            <circle cx="24" cy="20.4" r="1.5" fill="#DD7A52"/>
+            <path d="M16.6 28.5 A7.4 7.4 0 0 1 31.4 28.5 Z" fill="#C9A86A"/>
+            <path d="M30 27.4 L37 27.4 Q38.2 27.4 38.2 28.6 L38.2 29 Q38.2 30.2 37 30.2 L30 30.2 Z" fill="#C9A86A"/>
+            <circle cx="24" cy="20.4" r="1.5" fill="#C9A86A"/>
             <circle cx="21.2" cy="31.6" r="1" fill="currentColor"/>
             <circle cx="26.8" cy="31.6" r="1" fill="currentColor"/>
             <path d="M21.4 34.6 Q24 36.6 26.6 34.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -728,7 +730,7 @@ document.getElementById('drawerClose').addEventListener('click',()=>drawer.class
 drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
 
 // ===== BEFORE 이미지 생성: 같은 사진에서 '벽(중성·밝은 영역)' 색만 변경 =====
-(function(){
+(function(){ return; /* 비활성화 — 단색 recolor 대신 벽지 패턴 오버레이(.ba-paper) 사용 */
   const wrap=document.getElementById('baBefore'); if(!wrap) return;
   const bImg=wrap.querySelector('img'), aImg=document.querySelector('.ba-after'); if(!bImg||!aImg) return;
   const base=(aImg.currentSrc||aImg.src||'');
