@@ -333,6 +333,8 @@ footer ul a:hover{color:var(--point-soft);}
 .hero .ba-before img{width:100vw; max-width:none; filter:sepia(.42) saturate(.62) brightness(.84) contrast(.92);}
 .hero .ba-before::after{content:""; position:absolute; inset:0; pointer-events:none; opacity:.42; mix-blend-mode:multiply; background-color:rgba(150,120,70,.1);
   background-image:repeating-linear-gradient(45deg, rgba(110,80,45,.16) 0 7px, transparent 7px 20px), repeating-linear-gradient(-45deg, rgba(110,80,45,.12) 0 7px, transparent 7px 20px);}
+.hero .ba-before.recolored img{filter:saturate(.96) brightness(.97);}
+.hero .ba-before.recolored::after{display:none;}
 .ba-tag{position:absolute; top:86px; z-index:4; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:.1em; padding:6px 11px; border-radius:6px; background:rgba(16,18,20,.55); backdrop-filter:blur(5px); pointer-events:none;}
 .ba-b{left:24px; color:#d6c5b8;} .ba-a{right:24px; color:var(--point-lt);}
 .hero-scrim{position:absolute; inset:0; z-index:3; pointer-events:none; background:linear-gradient(100deg, rgba(16,18,20,.82) 0%, rgba(16,18,20,.46) 34%, rgba(16,18,20,.08) 58%, rgba(16,18,20,.34) 100%), linear-gradient(0deg, rgba(16,18,20,.6), transparent 44%);}
@@ -724,6 +726,36 @@ const drawer=document.getElementById('drawer');
 document.getElementById('menuBtn').addEventListener('click',()=>drawer.classList.add('open'));
 document.getElementById('drawerClose').addEventListener('click',()=>drawer.classList.remove('open'));
 drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
+
+// ===== BEFORE 이미지 생성: 같은 사진에서 '벽(중성·밝은 영역)' 색만 변경 =====
+(function(){
+  const wrap=document.getElementById('baBefore'); if(!wrap) return;
+  const bImg=wrap.querySelector('img'), aImg=document.querySelector('.ba-after'); if(!bImg||!aImg) return;
+  const base=(aImg.currentSrc||aImg.src||'');
+  const csrc=base.replace(/w=\d+/,'w=1200')+'&corsx=1';
+  const im=new Image(); im.crossOrigin='anonymous';
+  im.onload=function(){
+    try{
+      let w=im.naturalWidth,h=im.naturalHeight; const cap=1200; if(w>cap){h=Math.round(h*cap/w);w=cap;}
+      const c=document.createElement('canvas'); c.width=w; c.height=h;
+      const ctx=c.getContext('2d'); ctx.drawImage(im,0,0,w,h);
+      const id=ctx.getImageData(0,0,w,h), d=id.data;
+      const tr=170,tg=150,tb=96; // 낡은 벽지 톤 (머스타드-올리브 베이지)
+      for(let i=0;i<d.length;i+=4){
+        const r=d[i],g=d[i+1],b=d[i+2], mx=Math.max(r,g,b), mn=Math.min(r,g,b);
+        const sat=mx===0?0:(mx-mn)/mx, lum=mx/255;
+        if(sat<0.22 && lum>0.42){
+          const k=0.6*Math.min(1,(0.22-sat)/0.22+0.3);
+          d[i]=r+(tr-r)*k; d[i+1]=g+(tg-g)*k; d[i+2]=b+(tb-b)*k;
+        }
+      }
+      ctx.putImageData(id,0,0);
+      bImg.src=c.toDataURL('image/jpeg',0.85);
+      wrap.classList.add('recolored');
+    }catch(e){/* CORS 실패 → CSS 세피아 폴백 유지 */}
+  };
+  im.src=csrc;
+})();
 
 // ===== 히어로 Before/After 슬라이더 (The Living Wall) =====
 (function(){
