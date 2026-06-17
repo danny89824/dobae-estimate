@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>시안 ① Standard Edition</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFAF7;--ink:#16181A;--text:#1A1A18;--muted:#76726A;--point:#A8412B;--line:#E2DBCD;--line-2:#D2C9B8;}
+*{box-sizing:border-box;margin:0;}
+body{background:var(--paper);color:var(--text);font-family:'Pretendard',sans-serif;-webkit-font-smoothing:antialiased;}
+.mono{font-family:'JetBrains Mono',monospace;}
+.stage{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
+/* faint blueprint grid */
+.stage::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:repeating-linear-gradient(90deg,transparent 0 calc(20% - 1px),var(--line) calc(20% - 1px) 20%);}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px;width:100%;position:relative;z-index:2;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center;}
+.lab{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--point);display:flex;align-items:center;gap:10px;}
+.lab::before{content:"";width:34px;height:1.5px;background:var(--point);}
+h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(46px,7vw,88px);line-height:1.0;letter-spacing:-.03em;margin:24px 0 26px;color:var(--ink);}
+h1 em{font-style:italic;color:var(--point);}
+.lead{font-size:17px;color:#3a3833;max-width:30em;margin-bottom:30px;line-height:1.65;}
+.row{display:flex;gap:34px;align-items:center;}
+.cta{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--paper);font-weight:800;font-size:15px;padding:15px 26px;border-radius:7px;text-decoration:none;}
+.stat{font-family:'Fraunces',serif;font-size:15px;color:var(--muted);}
+.stat b{color:var(--ink);font-size:19px;}
+.media{position:relative;aspect-ratio:3/4;border:1px solid var(--ink);}
+.media img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.03);}
+.media .cap{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;padding:7px 12px;}
+.media .no{position:absolute;top:14px;right:14px;font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.4);}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:space-between;padding:11px 20px;font-size:12.5px;}
+.bar b{font-weight:800;}.bar .tag{font-family:'JetBrains Mono',monospace;color:#DD7A52;font-size:11px;letter-spacing:.1em;}
+.bar a{color:var(--paper);text-decoration:none;font-weight:700;border:1px solid rgba(255,255,255,.4);padding:6px 12px;border-radius:6px;}
+@media(max-width:820px){.wrap{grid-template-columns:1fr;gap:30px;padding:90px 24px 80px;}.media{aspect-ratio:4/3;}.stage::before{opacity:.3;}}
+</style></head><body>
+<div class="stage"><div class="wrap">
+  <div>
+    <div class="lab">No.01 · Standard Edition</div>
+    <h1>공간의 격은<br><em>벽에서</em><br>시작됩니다.</h1>
+    <p class="lead">덜어내고, 비우고, 단 하나의 색만 남깁니다. 큰 타이포와 여백이 만드는 조용한 자신감 — 말하지 않아도 품질이 읽히는 매거진의 격.</p>
+    <div class="row">
+      <a class="cta" href="../estimate/">1분 가견적 보기 →</a>
+      <div class="stat"><b>1,240</b>건 · <b>1</b>년 A/S · <b>4.9</b></div>
+    </div>
+  </div>
+  <div class="media">
+    <span class="no">No.118</span>
+    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=80&auto=format&fit=crop" alt="시공 사례">
+    <span class="cap">SEONGNAM · 32PY · SILK</span>
+  </div>
+</div></div>
+<div class="bar"><span><b>시안 ①</b> &nbsp;<span class="tag">STANDARD EDITION</span> &nbsp;· 절제·타이포·여백의 럭셔리</span><a href="./">← 보고서</a></div>
+</body></html>

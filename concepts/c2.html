@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>시안 ② The Living Wall</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFAF7;--ink:#16181A;--point:#DD7A52;--point-d:#A8412B;}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent;}
+body{background:var(--ink);color:var(--paper);font-family:'Pretendard',sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;}
+.stage{position:relative;height:100vh;width:100%;user-select:none;}
+.ba{position:absolute;inset:0;}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+.ba .after{filter:saturate(1.0) contrast(1.03);}
+.before{position:absolute;inset:0;width:50%;overflow:hidden;will-change:width;}
+.before img{width:100vw;max-width:none;filter:saturate(.7) brightness(.82) contrast(.95);}
+.tagB,.tagA{position:absolute;top:22px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.12em;padding:6px 12px;border-radius:6px;background:rgba(16,18,20,.6);backdrop-filter:blur(4px);z-index:4;}
+.tagB{left:22px;color:#cbb8ad;} .tagA{right:22px;color:var(--point);}
+.divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--point);z-index:5;transform:translateX(-1px);}
+.handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:6;width:54px;height:54px;border-radius:50%;background:var(--point);border:3px solid #fff;box-shadow:0 6px 22px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;cursor:ew-resize;}
+.handle svg{display:block;}
+/* overlay copy */
+.scrim{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(180deg,rgba(16,18,20,.78) 0%,rgba(16,18,20,.15) 34%,rgba(16,18,20,0) 55%,rgba(16,18,20,.55) 100%);}
+.copy{position:absolute;top:0;left:0;right:0;z-index:7;pointer-events:none;padding:78px 40px 0;max-width:1180px;margin:0 auto;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--point);}
+h1{font-size:clamp(36px,6vw,68px);line-height:1.04;font-weight:800;letter-spacing:-.04em;margin:16px 0 14px;text-shadow:0 2px 24px rgba(0,0,0,.4);}
+h1 em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--point);}
+.copy p{font-size:16px;color:rgba(255,255,255,.86);max-width:26em;}
+.hint{position:absolute;left:50%;bottom:96px;transform:translateX(-50%);z-index:7;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.14em;color:#fff;background:rgba(168,65,43,.85);padding:8px 16px;border-radius:999px;display:flex;gap:8px;align-items:center;animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.85}50%{opacity:1;transform:translateX(-50%) scale(1.03)}}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:space-between;padding:11px 20px;font-size:12.5px;border-top:1px solid #2c3034;}
+.bar .tag{font-family:'JetBrains Mono',monospace;color:var(--point);font-size:11px;letter-spacing:.1em;}
+.bar a{color:var(--paper);text-decoration:none;font-weight:700;border:1px solid rgba(255,255,255,.4);padding:6px 12px;border-radius:6px;}
+@media(max-width:700px){.copy{padding:74px 22px 0;}.hint{bottom:88px;}}
+</style></head><body>
+<div class="stage" id="stage">
+  <div class="ba" id="ba">
+    <img class="after" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1700&q=80&auto=format&fit=crop" alt="도배 후">
+    <div class="before" id="before"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1700&q=80&auto=format&fit=crop" alt="도배 전"></div>
+    <span class="tagB">BEFORE · 시공 전</span>
+    <span class="tagA">AFTER · 도배청년단</span>
+    <div class="scrim"></div>
+    <div class="divider" id="divider"></div>
+    <div class="handle" id="handle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </div>
+  <div class="copy">
+    <span class="eyebrow">The Living Wall</span>
+    <h1>벽을 바꾸면,<br><em>공간이</em> 바뀝니다.</h1>
+    <p>설명 대신 보여드립니다. 손잡이를 좌우로 움직여, 도배 한 번이 만든 차이를 직접 확인하세요.</p>
+  </div>
+  <div class="hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>드래그해서 비교</div>
+</div>
+<div class="bar"><span><b>시안 ②</b> &nbsp;<span class="tag">THE LIVING WALL ★ 추천</span> &nbsp;· 시네마틱 Before/After</span><a href="./">← 보고서</a></div>
+<script>
+const stage=document.getElementById('stage'),before=document.getElementById('before'),divider=document.getElementById('divider'),handle=document.getElementById('handle');
+let dragging=false;
+function setPos(clientX){const r=stage.getBoundingClientRect();let pct=((clientX-r.left)/r.width)*100;pct=Math.max(3,Math.min(97,pct));
+  before.style.width=pct+'%';divider.style.left=pct+'%';handle.style.left=pct+'%';}
+stage.addEventListener('pointerdown',e=>{dragging=true;setPos(e.clientX);});
+addEventListener('pointermove',e=>{if(dragging)setPos(e.clientX);});
+addEventListener('pointerup',()=>dragging=false);
+// subtle auto demo on load
+let t=0;const demo=setInterval(()=>{t+=1;const p=50+Math.sin(t/8)*22;before.style.width=p+'%';divider.style.left=p+'%';handle.style.left=p+'%';if(t>26){clearInterval(demo);before.style.width='50%';divider.style.left='50%';handle.style.left='50%';}},60);
+stage.addEventListener('pointerdown',()=>clearInterval(demo));
+</script>
+</body></html>
